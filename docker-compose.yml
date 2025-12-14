@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  mcp-legifrance:
+    build: .
+    environment:
+      DASSIGNIES_API_KEY: "ici"
+      DASSIGNIES_API_URL: "https://lab.dassignies.law/api/"
+    stdin_open: true
+    tty: true

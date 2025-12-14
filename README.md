@@ -74,6 +74,46 @@ DASSIGNIES_API_URL=https://lab.dassignies.law/api/ # ou l'URL correspondante
 
 Pour obtenir vos clés API de test, merci de me contacter via  [LinkedIn](https://www.linkedin.com/in/dassignies/) 
 
+## Installation avec Docker
+
+1. Assurez-vous d'avoir Docker et Docker Compose installés sur votre système.
+
+2. Clonez ce dépôt et naviguez dans le répertoire:
+```bash
+git clone https://github.com/rdassignies/mcp-server-legifrance.git
+cd mcp-server-legifrance
+```
+
+3. Modifiez le fichier `docker-compose.yml` pour y insérer vos clés API :
+   Remplacez `"votre_clé_api_ici"` par votre vraie clé API.
+
+4. Construisez et lancez le conteneur:
+```bash
+docker-compose up --build
+```
+
+Le serveur MCP sera alors disponible dans le conteneur. Pour l'intégrer avec Claude Desktop, utilisez la configuration suivante (remplacez `VOTRE_CLE_API` par votre clé réelle):
+
+```json
+{
+  "mcpServers": {
+    "legifrance": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e",
+        "DASSIGNIES_API_KEY=VOTRE_CLE_API",
+        "-e",
+        "DASSIGNIES_API_URL=https://lab.dassignies.law/api/",
+        "mcp-legifrance"
+      ]
+    }
+  }
+}
+```
+
 ## Utilisation
 
 
