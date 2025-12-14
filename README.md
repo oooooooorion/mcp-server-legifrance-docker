@@ -1,6 +1,7 @@
 # mcp-server-legifrance
 
 Serveur MCP [Model Context Protocol](https://modelcontextprotocol.io/introduction) expérimental permettant d'interroger les bases juridiques françaises via l'API Legifrance dans des LLMs compatibles comme Claude.
+## ce projet a été "vide codé" donc faire attention, notamment à l'usage des variables d'environnement pas très sécurisées
 
 ## Description
 
@@ -89,7 +90,7 @@ cd mcp-server-legifrance
 
 4. Construisez et lancez le conteneur:
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
 Le serveur MCP sera alors disponible dans le conteneur. Pour l'intégrer avec Claude Desktop, utilisez la configuration suivante (remplacez `VOTRE_CLE_API` par votre clé réelle):
